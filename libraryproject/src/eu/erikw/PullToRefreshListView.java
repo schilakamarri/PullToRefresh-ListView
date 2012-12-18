@@ -103,12 +103,12 @@ public class PullToRefreshListView extends ListView{
         init();
     }
 
-    @Override
+    
     public void setOnItemClickListener(OnItemClickListener onItemClickListener){
         this.onItemClickListener = onItemClickListener;
     }
 
-    @Override
+    
     public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener){
         this.onItemLongClickListener = onItemLongClickListener;
     }
@@ -264,7 +264,7 @@ public class PullToRefreshListView extends ListView{
         header.setLayoutParams(mlp);
     }
 
-    @Override
+    
     public boolean onTouchEvent(MotionEvent event){
         if(lockScrollWhileRefreshing
                 && (state == State.REFRESHING || getAnimation() != null && !getAnimation().hasEnded())){
@@ -404,7 +404,7 @@ public class PullToRefreshListView extends ListView{
         }
     }
 
-    @Override
+    
     protected void onScrollChanged(int l, int t, int oldl, int oldt){
         super.onScrollChanged(l, t, oldl, oldt);
 
@@ -426,7 +426,6 @@ public class PullToRefreshListView extends ListView{
             this.translation = translation;
         }
 
-        @Override
         public void onAnimationStart(Animation animation){
             stateAtAnimationStart = state;
 
@@ -440,7 +439,6 @@ public class PullToRefreshListView extends ListView{
             }
         }
 
-        @Override
         public void onAnimationEnd(Animation animation){
             setHeaderPadding(stateAtAnimationStart == State.REFRESHING ? 0 : -measuredHeaderHeight - headerContainer.getTop());
             setSelection(0);
@@ -458,7 +456,7 @@ public class PullToRefreshListView extends ListView{
 
                 postDelayed(new Runnable(){
 
-                    @Override
+                    
                     public void run(){
                         resetHeader();
                     }
@@ -468,13 +466,13 @@ public class PullToRefreshListView extends ListView{
             }
         }
 
-        @Override
+        
         public void onAnimationRepeat(Animation animation){}
     }
 
     private class PTROnGlobalLayoutListener implements OnGlobalLayoutListener{
 
-        @Override
+        
         public void onGlobalLayout(){
             int initialHeaderHeight = header.getHeight();
 
@@ -493,7 +491,7 @@ public class PullToRefreshListView extends ListView{
 
     private class PTROnItemClickListener implements OnItemClickListener{
 
-        @Override
+        
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
             hasResetHeader = false;
 
@@ -506,7 +504,7 @@ public class PullToRefreshListView extends ListView{
 
     private class PTROnItemLongClickListener implements OnItemLongClickListener{
 
-        @Override
+        
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id){
             hasResetHeader = false;
 
